@@ -84,7 +84,6 @@
 
 
 /* RESPONSIVE */
-/* MainLayout.css - Añade estas reglas */
 @media (max-width: 768px) {
   .whatsapp-layout {
     position: relative;
