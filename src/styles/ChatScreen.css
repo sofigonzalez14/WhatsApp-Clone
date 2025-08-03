@@ -1,0 +1,264 @@
+.whatsapp-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--chat-bg);
+  position: relative;
+}
+
+/* HEADER DEL CHAT */
+.chat-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  margin-right: 10px;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: none;
+}
+
+/* CONTENEDOR PRINCIPAL DEL CONTACTO */
+.contact-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+/* AVATAR */
+.contact-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  flex-shrink: 0; 
+}
+
+/* DETALLES DEL CONTACTO */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+  text-align: left; 
+  flex-grow: 1; 
+}
+
+.contact-details h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: left;
+}
+
+.contact-details p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: left;
+}
+
+/* ICONOS DEL HEADER */
+.header-actions {
+  display: flex;
+  gap: 15px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.header-icon {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.header-icon:hover {
+  background-color: #e9edef;
+}
+
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.messages-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message {
+  max-width: 65%;
+  display: flex;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.message.sent {
+  align-self: flex-end;
+}
+
+.message.received {
+  align-self: flex-start;
+}
+
+.message-bubble {
+  padding: 8px 12px;
+  border-radius: 7.5px;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+}
+
+.message.sent .message-bubble {
+  background-color: var(--message-out);
+  border-top-right-radius: 0;
+}
+
+.message.received .message-bubble {
+  background-color: var(--message-in);
+  border-top-left-radius: 0;
+}
+
+.message-bubble p {
+  font-size: 14.2px;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+.message-meta {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.time {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-right: 4px;
+}
+
+.read-status {
+  color: var(--text-secondary);
+  display: flex;
+}
+
+.read-status.read {
+  color: #53bdeb;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: var(--header-bg);
+  z-index: 1;
+  min-height: 62px;
+}
+
+.input-icon {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  margin-right: 8px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.input-icon:hover {
+  background-color: #e9edef;
+}
+
+.message-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 9px 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  background-color: white;
+  resize: none;
+  max-height: 100px;
+  line-height: 1.4;
+}
+
+.send-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--whatsapp-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: background-color 0.2s;
+}
+
+.send-button:hover {
+  background-color: var(--whatsapp-primary-dark);
+}
+
+.chat-panel {
+  transition: transform 0.3s ease;
+}
+
+
+/*RESPONSIVE*/
+
+@media (max-width: 768px) {
+  .chat-header {
+    position: relative;
+    padding-left: 15px;
+  }
+
+  .back-button {
+    display: flex !important; 
+    align-items: center;
+    position: absolute;
+    left: 10px;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    z-index: 30;
+    padding: 8px;
+    margin-right: 15px;
+  }
+
+  .back-button svg {
+    margin-right: 5px;
+  }
+
+  .contact-info {
+    margin-left: 50px; 
+  }
+}

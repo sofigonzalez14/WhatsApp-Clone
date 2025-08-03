@@ -1,0 +1,126 @@
+:root {
+  --whatsapp-primary: #00a884;
+  --header-bg: #f0f2f5;
+  --chat-bg: #e5ded8;
+  --message-out: #d9fdd3;
+  --message-in: #ffffff;
+  --text-primary: #111b21;
+  --text-secondary: #667781;
+  --text-tertiary: #8696a0;
+  --border-color: #d1d7db;
+  --unread-badge: #25d366;
+  --online-status: #00a884;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.whatsapp-layout {
+  display: flex;
+  height: 100vh;
+  background-color: var(--header-bg);
+}
+
+.contacts-panel {
+  width: 30%;
+  min-width: 380px;
+  max-width: 440px;
+  height: 100%;
+  border-right: 1px solid var(--border-color);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.chat-panel {
+  flex: 1;
+  display: flex;
+  background-color: var(--chat-bg);
+  position: relative;
+}
+
+.empty-chat-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+  padding: 32px;
+  background-color: var(--header-bg);
+  position: absolute;
+  left: 30%;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.empty-chat-state h2 {
+  font-size: 32px;
+  font-weight: 300;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.empty-chat-state p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 450px;
+  line-height: 1.5;
+}
+
+.contacts-panel,
+.chat-panel {
+  transition: transform 0.3s ease-in-out;
+}
+.chat-panel:not(:empty) ~ .empty-chat-state {
+  display: none;
+}
+
+
+/* RESPONSIVE */
+/* MainLayout.css - Añade estas reglas */
+@media (max-width: 768px) {
+  .whatsapp-layout {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .contacts-panel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease;
+    z-index: 10;
+  }
+
+  .chat-panel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transition: transform 0.3s ease;
+    z-index: 20;
+  }
+
+  .whatsapp-layout.chat-active .contacts-panel {
+    transform: translateX(-100%);
+  }
+
+  .whatsapp-layout.chat-active .chat-panel {
+    transform: translateX(-100%);
+  }
+
+  .empty-chat-state {
+    display: none !important;
+  }
+}
